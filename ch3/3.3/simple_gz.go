@@ -25,6 +25,7 @@ func compress(filename string) error {
 	}
 	defer out.Close()
 
+	gzip.DefaultCompression()
 	gzout := gzip.NewWriter(out)
 	_, err = io.Copy(gzout, in)
 	gzout.Close()
